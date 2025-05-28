@@ -1,0 +1,586 @@
+:root {
+    --bg-color: #f5f5f5;
+    --container-bg: #f4f7f6;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text-color: #ecf0f1;
+    --sidebar-btn-bg: #34495e;
+    --sidebar-btn-hover-bg: #1abc9c;
+    --logo-color: #1abc9c;
+    --main-content-bg: #ffffff;
+    --tabs-bg: #e0e0e0;
+    --tabs-border-color: #bdc3c7;
+    --tab-btn-color: #555;
+    --tab-btn-hover-color: #333;
+    --tab-btn-active-color: #19c37d;
+    --tab-btn-active-border: #19c37d;
+    --chat-header-bg: #f8f9fa;
+    --chat-border-color: #e0e0e0;
+    --chat-text-color: #333;
+    --user-message-bg: #3498db;
+    --ai-message-bg: #ecf0f1;
+    --ai-message-text-color: #333;
+    --input-bg: #ffffff;
+    --input-border: #bdc3c7;
+    --input-focus-border: #1abc9c;
+    --input-focus-shadow: rgba(26, 188, 156, 0.5);
+    --send-btn-bg: #1abc9c;
+    --send-btn-hover-bg: #16a085;
+    --clear-btn-color: #e74c3c;
+    --clear-btn-hover-color: #c0392b;
+    --notes-template-bg: #ffffff;
+    --notes-template-shadow: rgba(0, 0, 0, 0.1);
+    --notes-title-color: #2c3e50;
+    --notes-title-border: #1abc9c;
+    --notes-body-color: #333;
+    --notes-body-heading-color: #2c3e50;
+    --notes-body-heading-border: #ecf0f1;
+    --notes-body-subheading-color: #34495e;
+    --notes-code-bg: #f4f4f4;
+    --notes-code-block-bg: #2d2d2d;
+    --notes-code-block-color: #cccccc;
+    --notes-blockquote-border: #1abc9c;
+    --notes-blockquote-bg: #f8f9fa;
+    --notes-blockquote-color: #555;
+    --notes-footer-color: #777;
+    --notes-timestamp-color: #999;
+    --progress-container-bg: #e0e0e0;
+    --progress-bar-bg: #bdc3c7;
+    --progress-fill-bg: #1abc9c;
+    --progress-text-color: #555;
+    --progress-percentage-color: #1abc9c;
+    --download-btn-bg: #3498db;
+    --download-btn-hover-bg: #2980b9;
+    --download-btn-disabled-bg: #bdc3c7;
+    --download-btn-disabled-color: #666;
+}
+
+.dark-mode {
+    --bg-color: #1e1e1e;
+    --container-bg: #282c34;
+    --sidebar-bg: #21252b;
+    --sidebar-text-color: #cccccc;
+    --sidebar-btn-bg: #343a40;
+    --sidebar-btn-hover-bg: #007bff;
+    --logo-color: #61afef;
+    --main-content-bg: #282c34;
+    --tabs-bg: #343a40;
+    --tabs-border-color: #495057;
+    --tab-btn-color: #adb5bd;
+    --tab-btn-hover-color: #dee2e6;
+    --tab-btn-active-color: #61afef;
+    --tab-btn-active-border: #61afef;
+    --chat-header-bg: #343a40;
+    --chat-border-color: #495057;
+    --chat-text-color: #e0e0e0;
+    --user-message-bg: #007bff;
+    --ai-message-bg: #495057;
+    --ai-message-text-color: #e0e0e0;
+    --input-bg: #343a40;
+    --input-border: #495057;
+    --input-focus-border: #61afef;
+    --input-focus-shadow: rgba(97, 175, 239, 0.5);
+    --send-btn-bg: #61afef;
+    --send-btn-hover-bg: #529cd0;
+    --clear-btn-color: #e06c75;
+    --clear-btn-hover-color: #c63540;
+    --notes-template-bg: #282c34;
+    --notes-template-shadow: rgba(0, 0, 0, 0.3);
+    --notes-title-color: #61afef;
+    --notes-title-border: #61afef;
+    --notes-body-color: #e0e0e0;
+    --notes-body-heading-color: #61afef;
+    --notes-body-heading-border: #343a40;
+    --notes-body-subheading-color: #c678dd;
+    --notes-code-bg: #3b4048;
+    --notes-code-block-bg: #21252b;
+    --notes-code-block-color: #abb2bf;
+    --notes-blockquote-border: #61afef;
+    --notes-blockquote-bg: #3b4048;
+    --notes-blockquote-color: #abb2bf;
+    --notes-footer-color: #adb5bd;
+    --notes-timestamp-color: #999;
+    --progress-container-bg: #3b4048;
+    --progress-bar-bg: #495057;
+    --progress-fill-bg: #61afef;
+    --progress-text-color: #adb5bd;
+    --progress-percentage-color: #61afef;
+    --download-btn-bg: #c678dd;
+    --download-btn-hover-bg: #a35cc6;
+    --download-btn-disabled-bg: #495057;
+    --download-btn-disabled-color: #666;
+}
+
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-color);
+    color: var(--chat-text-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: var(--container-bg);
+}
+
+.sidebar {
+    width: 220px;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--logo-color);
+    text-align: center;
+}
+
+.sidebar-btn {
+    background: var(--sidebar-btn-bg);
+    color: var(--sidebar-text-color);
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.sidebar-btn:hover {
+    background: var(--sidebar-btn-hover-bg);
+    transform: translateY(-2px);
+}
+
+.sidebar-btn:active {
+    transform: translateY(0);
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--main-content-bg);
+}
+
+.right-panel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--main-content-bg);
+    border-left: none;
+}
+
+.tabs {
+    display: flex;
+    background: var(--tabs-bg);
+    border-bottom: 1px solid var(--tabs-border-color);
+}
+
+.tab-btn {
+    padding: 14px 28px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: var(--tab-btn-color);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.tab-btn:hover {
+     color: var(--tab-btn-hover-color);
+}
+
+.tab-btn.active {
+    color: var(--tab-btn-active-color);
+    border-bottom: 2px solid var(--tab-btn-active-border);
+    font-weight: bold;
+}
+
+.tab-content {
+    flex: 1;
+    overflow: hidden;
+    background-color: var(--main-content-bg);
+}
+
+.tab-pane {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+    background-color: var(--main-content-bg);
+}
+
+.tab-pane.active {
+    display: flex;
+}
+
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--main-content-bg);
+}
+
+.chat-header {
+    padding: 15px;
+    border-bottom: 1px solid var(--chat-border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--chat-header-bg);
+}
+
+.chat-header h3 {
+    margin: 0;
+    color: var(--chat-text-color);
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    color: var(--clear-btn-color);
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.clear-btn:hover {
+    color: var(--clear-btn-hover-color);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: var(--main-content-bg);
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    border-radius: 18px;
+    max-width: 75%;
+    position: relative;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.user-message {
+    background: var(--user-message-bg);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.ai-message {
+    background: var(--ai-message-bg);
+    color: var(--ai-message-text-color);
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-input-container {
+    padding: 15px;
+    border-top: 1px solid var(--chat-border-color);
+    display: flex;
+    gap: 10px;
+    background-color: var(--chat-header-bg);
+    align-items: center;
+}
+
+#user-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 25px;
+    font-size: 1em;
+    background-color: var(--input-bg);
+    color: var(--chat-text-color);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#user-input:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 5px var(--input-focus-shadow);
+}
+
+#send-btn {
+    padding: 12px 20px;
+    background: var(--send-btn-bg);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+#send-btn:hover {
+    background: var(--send-btn-hover-bg);
+    transform: translateY(-2px);
+}
+
+#send-btn:active {
+     transform: translateY(0);
+}
+
+/* Mindmap and Notes container styling */
+.mindmap-container,
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--main-content-bg);
+}
+
+.mindmap-header,
+.notes-header {
+    padding: 15px;
+    border-bottom: 1px solid var(--chat-border-color);
+    background: var(--chat-header-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.mindmap-header h3,
+.notes-header h3 {
+    margin: 0;
+    color: var(--chat-text-color);
+}
+
+.mindmap-controls,
+.notes-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.mindmap-controls input[type="text"],
+.notes-controls input[type="text"] {
+    padding: 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--chat-text-color);
+    font-size: 0.9em;
+}
+
+.mindmap-controls button,
+.notes-controls button {
+    padding: 8px 12px;
+    background-color: var(--download-btn-disabled-bg);
+    color: var(--download-btn-disabled-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.mindmap-controls button:hover,
+.notes-controls button:hover {
+    background-color: var(--notes-footer-color);
+}
+
+.download-btn {
+    background-color: var(--download-btn-bg);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: var(--download-btn-hover-bg);
+}
+
+.download-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--download-btn-disabled-bg);
+    color: var(--download-btn-disabled-color);
+}
+
+.download-icon {
+    font-size: 1em;
+}
+
+.notes-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: var(--main-content-bg);
+}
+
+.notes-template {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: var(--notes-template-bg);
+    box-shadow: 0 2px 4px var(--notes-template-shadow);
+    border-radius: 8px;
+}
+
+.notes-title {
+    font-size: 24px;
+    color: var(--notes-title-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--notes-title-border);
+}
+
+.notes-body {
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--notes-body-color);
+}
+
+.notes-body h2 {
+    color: var(--notes-body-heading-color);
+    margin: 20px 0 10px;
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--notes-body-heading-border);
+    padding-bottom: 5px;
+}
+
+.notes-body h3 {
+    color: var(--notes-body-subheading-color);
+    margin: 15px 0 8px;
+    font-size: 1.2em;
+}
+
+.notes-body p {
+    margin: 10px 0;
+}
+
+.notes-body ul, .notes-body ol {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.notes-body li {
+    margin-bottom: 8px;
+}
+
+.notes-body code {
+    background: var(--notes-code-bg);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+}
+
+.notes-body pre code {
+    display: block;
+    padding: 15px;
+    overflow-x: auto;
+    background: var(--notes-code-block-bg);
+    color: var(--notes-code-block-color);
+    border-radius: 4px;
+}
+
+.notes-body blockquote {
+    border-left: 4px solid var(--notes-blockquote-border);
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: var(--notes-blockquote-bg);
+    color: var(--notes-blockquote-color);
+    border-radius: 4px;
+    font-style: italic;
+}
+
+.notes-footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--chat-border-color);
+    color: var(--notes-footer-color);
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.timestamp {
+    color: var(--notes-timestamp-color);
+    margin-top: 5px;
+}
+
+/* Progress indicator styles - adjusted for new color scheme */
+.progress-container {
+    margin-top: 15px;
+    padding: 8px;
+    background: var(--progress-container-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--progress-bar-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--progress-fill-bg);
+    width: 0%;
+    transition: width 0.4s ease-in-out;
+}
+
+.progress-text {
+    font-size: 0.8em;
+    color: var(--progress-text-color);
+    text-align: center;
+}
+
+.progress-percentage {
+    font-weight: bold;
+    font-size: 1em;
+    color: var(--progress-percentage-color);
+}
+
+/* Update notes and mindmap styles */
+.notes-body, .mermaid {
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--chat-text-color);
+}
+
+.notes-body *, .mermaid * {
+    font-family: inherit;
+}
+
+/* Remove asterisks from generated content */
+.notes-body strong, .mermaid strong {
+    font-weight: bold;
+}
+
+.notes-body em, .mermaid em {
+    font-style: italic;
+}

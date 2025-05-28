@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenithIQ - AI Learning Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">ZenithIQ</div>
+            <button id="clearBtn" class="sidebar-btn">Clear Chat</button>
+            <button id="mindmapBtn" class="sidebar-btn">Generate Mind Map</button>
+            <button id="notesBtn" class="sidebar-btn">Generate Notes</button>
+            <button id="darkModeToggleBtn" class="sidebar-btn">Toggle Dark Mode</button>
+            <!-- Recognize Text button was removed previously and will not be added back -->
+        </div>
+
+        <div class="main-content">
+            <div class="right-panel">
+                 <div class="tabs">
+                     <button class="tab-btn active" data-tab="chat">Chat</button>
+                     <button class="tab-btn" data-tab="mindmap">Mind Map</button>
+                     <button class="tab-btn" data-tab="notes">Notes</button>
+                 </div>
+                 <div class="tab-content">
+                     <div id="chat-tab" class="tab-pane active">
+                         <div class="chat-area">
+                             <div class="chat-header">
+                                <h3>Chat History</h3>
+                                <button id="clearChatBtn" class="clear-btn">Clear Chat</button>
+                            </div>
+                             <div id="chat-messages" class="chat-messages"></div>
+                             <div class="chat-input-container">
+                                 <input type="text" id="user-input" placeholder="Type your message...">
+                                 <button id="send-btn">Send</button>
+                             </div>
+                         </div>
+                     </div>
+                     <div id="mindmap-tab" class="tab-pane">
+                         <div class="mindmap-container">
+                             <div class="mindmap-header">
+                                 <h3>Mind Map</h3>
+                                 <div class="mindmap-controls">
+                                     <input type="text" id="mindmap-input" placeholder="Enter topic for mind map...">
+                                     <button id="generate-mindmap-btn">Generate</button>
+                                     <button id="download-mindmap-png-btn" class="download-btn" disabled>
+                                         <span class="download-icon">⬇️</span> Download PNG
+                                     </button>
+                                     <button id="download-mindmap-pdf-btn" class="download-btn" disabled>
+                                         <span class="download-icon">⬇️</span> Download PDF
+                                     </button>
+                                 </div>
+                                 <div class="progress-container" id="mindmap-progress" style="display: none;">
+                                     <div class="progress-bar">
+                                         <div class="progress-fill"></div>
+                                     </div>
+                                     <div class="progress-text">Generating mind map... <span class="progress-percentage">0%</span></div>
+                                 </div>
+                             </div>
+                             <div id="mindmap"></div>
+                         </div>
+                     </div>
+                     <div id="notes-tab" class="tab-pane">
+                         <div class="notes-container">
+                             <div class="notes-header">
+                                 <h3>Notes</h3>
+                                 <div class="notes-controls">
+                                     <input type="text" id="notes-input" placeholder="Enter topic for notes...">
+                                     <button id="generate-notes-btn">Generate</button>
+                                     <button id="download-notes-btn" class="download-btn" disabled>
+                                         <span class="download-icon">📥</span> Download PDF
+                                     </button>
+                                 </div>
+                                 <div class="progress-container" id="notes-progress" style="display: none;">
+                                     <div class="progress-bar">
+                                         <div class="progress-fill"></div>
+                                     </div>
+                                     <div class="progress-text">Generating notes... <span class="progress-percentage">0%</span></div>
+                                 </div>
+                             </div>
+                             <div id="notes-content" class="notes-content">
+                                 <div class="notes-template">
+                                     <h1 class="notes-title"></h1>
+                                     <div class="notes-body"></div>
+                                     <div class="notes-footer">
+                                         <p>Generated by ZenithIQ</p>
+                                         <p class="timestamp"></p>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
